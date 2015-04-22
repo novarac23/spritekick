@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spritekicks</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  
+  <% if user_signed_in? %>
+    <p><%= current_user.name %></p>
+    <p><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></p>
+  <% else %>
+    <p><%= link_to 'Log In', new_user_session_path %></p>
+    <p><%= link_to 'Sign Up', new_user_registration_path %></p>
+  <% end %>
+
+  <ul>
+    <li><%= link_to 'Latest', latest_path %></li>
+    <li><%= link_to 'Oldest', oldest_path %></li>
+  </ul>
+
+  <p>
+    <%= form_tag search_path, method: :get do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag :search %>
+    <% end %>
+  </p>
+
+  <%= yield %>
+
+  <p><%= link_to 'New Kick', new_spritekick_path %></p>
+  <p><%= link_to 'All Kicks', '/' %></p>
+
+</body>
+</html>

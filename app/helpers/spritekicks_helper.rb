@@ -1,0 +1,2 @@
+module SpritekicksHelper
+end

@@ -1,0 +1,5 @@
+<h1>All sprites</h1>
+
+<% @spritekicks.each do |sprite| %>
+  <div><%= sprite.title %> | <%= image_tag sprite.image.url(:thumb) %> | <%= link_to 'See it', sprite %>  | <%= link_to 'Delete', sprite, method: :delete %> | <%= link_to 'Edit' , edit_spritekick_path(sprite) %></div>
+<% end %>
