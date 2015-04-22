@@ -59,11 +59,10 @@ class SpritekicksController < ApplicationController
   def upvote
     user_current = User.where(id: @spritekick.user_id).first
     #TODO is it smart to add votes like this ? can you do something like @spritekick.spritekicks.move_up
-    if owned(@spritekick) || user_current.voted == true
+    if owned(@spritekick)
       redirect_to '/'
     else
       Spritekick.move_up(params[:id])
-      user_current.update(voted: true)
       redirect_to @spritekick
     end
   end

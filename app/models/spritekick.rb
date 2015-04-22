@@ -14,13 +14,10 @@ class Spritekick < ActiveRecord::Base
     #TODO figure out should you call other models from within a model
     sprite = Spritekick.where(id: id).first
     current_num_of_votes = sprite.votes
-    #user = User.find(sprite.user_id)
     if (current_num_of_votes == nil) || (current_num_of_votes == 0) #TODO change to be a dynamic value current_user.id
       sprite.update_attribute('votes', 1)
-      #user.update_attribute('voted', true)
     else
       sprite.update_attribute('votes', current_num_of_votes + 1)
-      #user.update_attribute('voted', true)
     end
   end
 

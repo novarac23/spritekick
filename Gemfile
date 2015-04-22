@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "paperclip", "~> 4.2"
 gem 'devise'
 gem 'searchkick'
+gem 'unicorn'
 
 
 group :development, :test do
@@ -21,5 +22,5 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano-rails'
 end
