@@ -1,17 +1,19 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'spritekick'
+set :repo_url, 'git@github.com:novarac23/spritekick.git'
 
 # Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, '/home/rails'
 
 # Default value for :scm is :git
-# set :scm, :git
+set :scm, :git
+
+set :rails_env, "production"
 
 # Default value for :format is :pretty
 # set :format, :pretty
@@ -20,7 +22,8 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
+server "http://45.55.251.148/", :app, :web, :db, :primary => true
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
