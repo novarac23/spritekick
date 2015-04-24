@@ -58,7 +58,6 @@ class SpritekicksController < ApplicationController
 
   def upvote
     user_current = User.where(id: @spritekick.user_id).first
-    #TODO is it smart to add votes like this ? can you do something like @spritekick.spritekicks.move_up
     if owned(@spritekick)
       redirect_to '/'
     else
@@ -68,7 +67,6 @@ class SpritekicksController < ApplicationController
   end
 
   def downvote
-    #TODO is it smart to add votes like this ? can you do something like @spritekick.spritekicks.move_up
     if owned(@spritekick)
       redirect_to '/'
     else
@@ -86,7 +84,7 @@ class SpritekicksController < ApplicationController
   end
 
   def safe_params
-    params.require(:spritekick).permit(:title, :author, :description, :url, :image, :votes)
+    params.require(:spritekick).permit(:title, :author, :description, :url, :image, :votes, :categorie)
   end
 
   def owned(sprite)

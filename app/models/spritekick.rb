@@ -9,12 +9,12 @@ class Spritekick < ActiveRecord::Base
 
   searchkick
 
+  CATEGORIES = ['Sport', 'Music', 'Tech']
+
   def self.move_up(id)
-    #TODO is it smart to search for a particular instance of a model inside of a model method?
-    #TODO figure out should you call other models from within a model
     sprite = Spritekick.where(id: id).first
     current_num_of_votes = sprite.votes
-    if (current_num_of_votes == nil) || (current_num_of_votes == 0) #TODO change to be a dynamic value current_user.id
+    if (current_num_of_votes == nil) || (current_num_of_votes == 0)
       sprite.update_attribute('votes', 1)
     else
       sprite.update_attribute('votes', current_num_of_votes + 1)
@@ -22,10 +22,9 @@ class Spritekick < ActiveRecord::Base
   end
 
   def self.move_down(id)
-    #TODO is it smart to search for a particular instance of a model inside of a model method?
     sprite = Spritekick.where(id: id).first
     current_num_of_votes = sprite.votes
-    if (current_num_of_votes == nil) || (current_num_of_votes == 1) #TODO change to be a dynamic value current_user.id
+    if (current_num_of_votes == nil) || (current_num_of_votes == 1)
       sprite.update_attribute('votes', 0) 
     else
       sprite.update_attribute('votes', current_num_of_votes - 1)

@@ -4,6 +4,8 @@
 
   <p><%= f.label :author %></p>
   <p><%= f.text_field :author %></p>
+
+  <p><%= f.select(:categorie, options_for_select(Spritekick::CATEGORIES)) %></p>
   
   <p><%= f.label :description %></p>
   <p><%= f.text_area :description %></p>

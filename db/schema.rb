@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420204109) do
+ActiveRecord::Schema.define(version: 20150424161247) do
 
   create_table "spritekicks", force: :cascade do |t|
     t.string   "title"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20150420204109) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
-    t.string   "categories"
     t.integer  "votes"
+    t.string   "categorie"
   end
 
   add_index "spritekicks", ["user_id"], name: "index_spritekicks_on_user_id"
